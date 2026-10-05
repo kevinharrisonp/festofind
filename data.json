@@ -1,0 +1,272 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Nithish M",
+      "college": "New Prince Shri Bhavani College Of Engineering And Technology",
+      "email": "2024csenithishm@npsbcet.edu.in",
+      "department": "CSE",
+      "year": "3rd",
+      "password": "mrnithish",
+      "role": "student"
+    },
+    {
+      "id": "u2",
+      "name": "Kevin Harrison P",
+      "college": "FFIT",
+      "email": "2024csekevinharrisonp@npsbcet.edu.in",
+      "department": "CSE",
+      "year": "3rd",
+      "password": "mrkevin",
+      "role": "student"
+    },
+    {
+      "id": "a1",
+      "name": "Admin",
+      "college": "Administration",
+      "email": "admin@festofind.com",
+      "department": "Administration",
+      "year": "-",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ],
+  "events": [
+    {
+      "id": "e0",
+      "title": "AI Innovation Hackathon",
+      "category": "Hackathon",
+      "date": "2026-11-14",
+      "time": "09:00",
+      "venue": "Main Auditorium",
+      "description": "Join AI Innovation Hackathon — a 24-hour flagship campus hackathon with talks, hands-on mentorship, and networking with tech innovators.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 120,
+      "fee": 150,
+      "pricingModel": "standard",
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "e1",
+      "title": "National Symposium 2026",
+      "category": "Symposium",
+      "date": "2026-11-02",
+      "time": "10:00",
+      "venue": "Seminar Hall A",
+      "description": "National Level Inter-College Technical & Non-Technical Symposium. Compete in exciting domain-specific tracks and showcase your engineering prowess.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 200,
+      "fee": 200,
+      "pricingModel": "one-time",
+      "subEvents": [
+        {
+          "id": "se1",
+          "title": "Paper & PPT Presentation",
+          "type": "Technical",
+          "time": "10:30 AM",
+          "venue": "Hall A",
+          "fee": 80,
+          "description": "Present your original research paper in emerging tech domains."
+        },
+        {
+          "id": "se2",
+          "title": "Code Debugging & Algorush",
+          "type": "Technical",
+          "time": "11:30 AM",
+          "venue": "Lab 3",
+          "fee": 100,
+          "description": "Identify bugs, optimize code, and solve speed algorithmic challenges."
+        },
+        {
+          "id": "se3",
+          "title": "Technical Quiz & Brainstorm",
+          "type": "Technical",
+          "time": "01:30 PM",
+          "venue": "Seminar Room 1",
+          "fee": 60,
+          "description": "Rapid-fire buzzer quiz covering core CS, AI, and electronics."
+        },
+        {
+          "id": "se4",
+          "title": "Web & UI/UX Design Sprint",
+          "type": "Technical",
+          "time": "02:30 PM",
+          "venue": "Lab 2",
+          "fee": 80,
+          "description": "Build a stunning responsive web UI based on a surprise live brief."
+        },
+        {
+          "id": "se5",
+          "title": "Gaming Tournament (BGMI & FIFA)",
+          "type": "Non-Technical",
+          "time": "03:30 PM",
+          "venue": "Audi Lounge",
+          "fee": 80,
+          "description": "Fast-paced e-sports championship with cash pool prizes."
+        }
+      ],
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "e2",
+      "title": "Web Development Workshop",
+      "category": "Workshop",
+      "date": "2026-10-22",
+      "time": "14:00",
+      "venue": "Lab 3",
+      "description": "Hands-on Masterclass on Modern Full-Stack Web Development, APIs, and Cloud Deployment.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 40,
+      "fee": 100,
+      "pricingModel": "standard",
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "e3",
+      "title": "Inter-College Cultural Fest",
+      "category": "Cultural",
+      "date": "2026-12-05",
+      "time": "16:00",
+      "venue": "Open Air Theatre",
+      "description": "Spectacular music, dance, dramatics, fashion show and battle of the bands.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 500,
+      "fee": 0,
+      "pricingModel": "standard",
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "e4",
+      "title": "Sports Championship",
+      "category": "Sports",
+      "date": "2026-11-20",
+      "time": "08:00",
+      "venue": "Main Ground",
+      "description": "Annual inter-college track & field, football, basketball and badminton meet.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 150,
+      "fee": 50,
+      "pricingModel": "standard",
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "e5",
+      "title": "Emerging Technology Conference",
+      "category": "Conference",
+      "date": "2026-09-10",
+      "time": "09:30",
+      "venue": "Convention Centre",
+      "description": "Keynotes from industry leaders on Generative AI, Quantum Computing, and Next-Gen Systems.",
+      "banner": "",
+      "adminId": "a1",
+      "status": "published",
+      "maxParticipants": 300,
+      "fee": 250,
+      "pricingModel": "standard",
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    }
+  ],
+  "regs": [
+    {
+      "id": "r1",
+      "eventId": "e1",
+      "studentId": "u2",
+      "registeredAt": "2026-10-01T10:00:00Z",
+      "amountPaid": 200,
+      "paymentStatus": "paid",
+      "paymentMethod": "UPI",
+      "txnId": "TXN_FF_982410",
+      "subEvents": [
+        "se1",
+        "se2"
+      ]
+    },
+    {
+      "id": "r2",
+      "eventId": "e1",
+      "studentId": "u3",
+      "registeredAt": "2026-10-02T10:00:00Z",
+      "amountPaid": 200,
+      "paymentStatus": "paid",
+      "paymentMethod": "Card",
+      "txnId": "TXN_FF_772194",
+      "subEvents": [
+        "se2",
+        "se3"
+      ]
+    },
+    {
+      "id": "r3",
+      "eventId": "e5",
+      "studentId": "u1",
+      "registeredAt": "2026-08-20T10:00:00Z",
+      "amountPaid": 250,
+      "paymentStatus": "paid",
+      "paymentMethod": "UPI",
+      "txnId": "TXN_FF_119284",
+      "subEvents": []
+    }
+  ],
+  "anns": [
+    {
+      "id": "n1",
+      "eventId": "e1",
+      "adminId": "a1",
+      "title": "Venue confirmed",
+      "message": "Symposium sessions begin sharp at 10 AM. Carry your ID card.",
+      "createdAt": "2026-10-02T12:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif1",
+      "userId": "u1",
+      "eventId": "e5",
+      "title": "Payment Successful & Registered",
+      "message": "Your registration for Emerging Technology Conference is confirmed. Amount: ₹250 (TXN_FF_119284).",
+      "type": "payment",
+      "read": true,
+      "createdAt": "2026-08-20T10:00:00Z"
+    },
+    {
+      "id": "notif2",
+      "userId": "u2",
+      "eventId": "e1",
+      "title": "Payment Verified (All-Access Pass)",
+      "message": "You have registered for National Symposium 2026. One-time pass payment of ₹200 confirmed (TXN_FF_982410).",
+      "type": "payment",
+      "read": false,
+      "createdAt": "2026-10-01T10:00:00Z"
+    },
+    {
+      "id": "notif3",
+      "userId": "u2",
+      "eventId": "e1",
+      "title": "Symposium Announcement",
+      "message": "Symposium sessions begin sharp at 10 AM. Carry your ID card.",
+      "type": "announcement",
+      "read": false,
+      "createdAt": "2026-10-02T12:00:00Z"
+    },
+    {
+      "id": "notif4",
+      "userId": "u3",
+      "eventId": "e1",
+      "title": "Payment Verified (All-Access Pass)",
+      "message": "You have registered for National Symposium 2026. Payment of ₹200 confirmed (TXN_FF_772194).",
+      "type": "payment",
+      "read": false,
+      "createdAt": "2026-10-02T10:00:00Z"
+    }
+  ]
+}
