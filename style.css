@@ -1,0 +1,425 @@
+/* ==========================================================================
+   FestoFind – stylesheet
+   Sections:
+     1. Theme variables (light + dark)
+     2. Base & layout
+     3. Header, logo & icon buttons
+     4. Buttons
+     5. Cards, grid & event cards
+     6. Tags & text helpers
+     7. Form fields
+     8. Category picker
+     9. Tabs
+    10. Modal & popup menu
+    11. Toasts
+    12. Misc (rows, stats, bars, tables)
+    13. Animations
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. THEME VARIABLES
+   ========================================================================== */
+
+:root {
+  --bg: #f6f4ff;   /* page background */
+  --card: #fff;    /* card / surface */
+  --tx: #1d1b2e;   /* main text */
+  --mu: #6b6882;   /* muted text */
+  --pr: #6c3ff5;   /* primary */
+  --pr2: #9b5cff;  /* primary (gradient end) */
+  --bd: #e6e2f5;   /* borders */
+  --ok: #16a34a;   /* success */
+  --er: #dc2626;   /* error / danger */
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0);       /* phone notch */
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Dark mode follows the device unless data-theme="light" is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) {
+    --bg: #14121f;
+    --card: #1e1b2e;
+    --tx: #f1eefc;
+    --mu: #a29fbb;
+    --bd: #322e48;
+  }
+}
+
+
+/* ==========================================================================
+   2. BASE & LAYOUT
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* centered content column */
+.w {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+}
+
+/* full-height centered wrapper (login / role chooser) */
+.ctr {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+/* page entrance animation */
+.pg { animation: up .35s; }
+
+:focus-visible {
+  outline: 3px solid var(--pr2);
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   3. HEADER, LOGO & ICON BUTTONS
+   ========================================================================== */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--bd);
+  position: sticky;
+  top: env(safe-area-inset-top, 0);
+  z-index: 5;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logo i {
+  background: linear-gradient(135deg, var(--pr), var(--pr2));
+  color: #fff;
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+}
+
+/* round icon button (search, profile) */
+.ic {
+  background: none;
+  border: 1px solid var(--bd);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+
+.btn {
+  background: linear-gradient(135deg, var(--pr), var(--pr2));
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .15s;
+}
+.btn:hover    { transform: translateY(-1px); }
+.btn:active   { transform: scale(.97); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn.g {                      /* ghost / outline */
+  background: none;
+  color: var(--tx);
+  border: 1px solid var(--bd);
+}
+
+.btn.d { background: var(--er); }   /* danger */
+
+
+/* ==========================================================================
+   5. CARDS, GRID & EVENT CARDS
+   ========================================================================== */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 2px 10px #0000000d;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+/* event card = .card.ev (image banner .b on top, text body .c below) */
+.ev {
+  overflow: hidden;
+  padding: 0;
+  transition: .2s;
+  animation: in .4s both;
+}
+.ev:hover { transform: translateY(-4px); }
+
+.ev .b {                      /* banner */
+  height: 100px;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  background-size: cover;
+}
+
+.ev .c {                      /* content */
+  padding: 14px;
+  display: grid;
+  gap: 6px;
+}
+
+
+/* ==========================================================================
+   6. TAGS & TEXT HELPERS
+   ========================================================================== */
+
+.tag {
+  font-size: 12px;
+  background: #6c3ff51f;
+  color: var(--pr);
+  border-radius: 20px;
+  padding: 2px 10px;
+  justify-self: start;
+}
+
+.mu {                         /* muted text */
+  color: var(--mu);
+  font-size: 14px;
+}
+
+.err {                        /* form error message */
+  color: var(--er);
+  font-size: 13px;
+}
+
+
+/* ==========================================================================
+   7. FORM FIELDS
+   ========================================================================== */
+
+input, select, textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+/* ==========================================================================
+   8. CATEGORY PICKER
+   ========================================================================== */
+
+.cats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.cat {
+  text-align: center;
+  cursor: pointer;
+  padding: 14px;
+  border: 2px solid var(--bd);
+  border-radius: 16px;
+  background: var(--card);
+  transition: .15s;
+}
+.cat:hover { transform: translateY(-2px); }
+.cat.on {                     /* selected category */
+  border-color: var(--pr);
+  background: #6c3ff51a;
+}
+
+
+/* ==========================================================================
+   9. TABS
+   ========================================================================== */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.tabs button {
+  background: none;
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tabs .on {                   /* active tab */
+  background: var(--pr);
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   10. MODAL & POPUP MENU
+   ========================================================================== */
+
+.ov {                         /* dark overlay behind modal */
+  position: fixed;
+  inset: 0;
+  background: #0007;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  z-index: 20;
+  animation: fd .2s;
+}
+
+.md {                         /* modal box */
+  background: var(--card);
+  border-radius: 20px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 20px;
+  animation: sc .25s;
+}
+
+.pop {                        /* profile dropdown */
+  position: absolute;
+  right: 16px;
+  top: 58px;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 190px;
+  z-index: 9;
+  animation: sc .15s;
+}
+
+.pop button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pop button:hover { background: var(--bg); }
+
+
+/* ==========================================================================
+   11. TOASTS
+   ========================================================================== */
+
+#t {                          /* toast container */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: grid;
+  gap: 8px;
+}
+
+.ts {                         /* single toast */
+  background: #1d1b2e;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  animation: up .3s;
+}
+
+
+/* ==========================================================================
+   12. MISC: ROWS, STATS, BARS, TABLES
+   ========================================================================== */
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.stat {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.bar {                        /* statistics bar */
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--pr), var(--pr2));
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+td, th {
+  padding: 8px;
+  border-bottom: 1px solid var(--bd);
+  text-align: left;
+}
+
+.tw { overflow-x: auto; }     /* table wrapper: scroll sideways on small screens */
+
+
+/* ==========================================================================
+   13. ANIMATIONS
+   ========================================================================== */
+
+@keyframes in { from { opacity: 0; transform: translateY(10px); } }   /* event cards */
+@keyframes up { from { opacity: 0; transform: translateY(12px); } }   /* pages, toasts */
+@keyframes fd { from { opacity: 0; } }                                 /* overlay fade */
+@keyframes sc { from { opacity: 0; transform: scale(.94); } }          /* modal / popup pop-in */
